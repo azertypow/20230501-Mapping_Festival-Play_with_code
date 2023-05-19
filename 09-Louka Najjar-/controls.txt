@@ -1,0 +1,6 @@
+Here a some basic keyboard controls implemented for the tests :
+
+r → start music and all the stuff
+q → dezoom
+a → go toward center
+s → go toward outside
