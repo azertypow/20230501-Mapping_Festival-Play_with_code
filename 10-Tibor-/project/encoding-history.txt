@@ -1,0 +1,471 @@
+11701  ffmpeg -stream_loop 5 -i 2023-02-08_20-30-45-86dc898.wav -c copy output.wav
+11702  ffmpeg -y -framerate 60 -pattern_type glob -i '*.png' -i %s.wav -preset veryslow -tune animation -c:v libx264 -pix_fmt yuv420p -crf 23 -t $(ffmpeg -i 2023-02-08_20-30-45-86dc898.wav -i '*.png' -filter_complex "[1:v][0:a]concat=n=2:v=1:a=1[v][a]" -map "[v]" -map "[a]" -f null - 2>&1 | grep "Duration" | awk '{print $2}' | tr -d ',') -map 0:v:0 -map 1:a:0 -f mp4 2023-02-08_20-30-45-86dc898-2.mov\n
+11703  ffmpeg -y -framerate 60 -pattern_type glob -i '*.png' -i 2023-02-08_20-30-45-86dc898.wav -preset veryslow -tune animation -c:v libx264 -pix_fmt yuv420p -crf 23 -t $(ffmpeg -i 2023-02-08_20-30-45-86dc898.wav -i '*.png' -filter_complex "[1:v][0:a]concat=n=2:v=1:a=1[v][a]" -map "[v]" -map "[a]" -f null - 2>&1 | grep "Duration" | awk '{print $2}' | tr -d ',') -map 0:v:0 -map 1:a:0 -f mp4 2023-02-08_20-30-45-86dc898-2.mov\n
+11704  /usr/local/bin/ffmpeg -y -stream_loop 5 -i 2023-02-08_20-30-45-86dc898-2.mov -c copy 2023-02-08_20-30-45-86dc898-2-loop05.mov
+11705  ffmpeg -y -framerate 60 -pattern_type glob -i '*.png' -i 2023-02-08_20-30-45-86dc898.wav -preset veryslow -tune animation -c:v libx264 -pix_fmt yuv420p -crf 23 -longest -map 0:v:0 -map 1:a:0 -f mp4 2023-02-08_20-30-45-86dc898-longest.mov
+11706  clear
+11707  ffprobe -select_streams a:0 -show_entries stream=nb_samples -of default=nokey=1:noprint_wrappers=1 2023-02-08_21-25-45-86dc898.wav\n
+11708  ffprobe -v error -count_frames -select_streams a:0 -show_entries stream=nb_frames -of default=nokey=1:noprint_wrappers=1 2023-02-08_21-25-45-86dc898.wav \n
+11709  clear
+11710  ls
+11711  ffprobe -v error -select_streams v:0 -show_entries stream=duration -of default=noprint_wrappers=1:nokey=1 2023-02-08_22-01-27-86dc898.mov\n
+11712  ffprobe -v error -select_streams v:0 -show_entries stream=duration -of default=noprint_wrappers=1:nokey=1 2023-02-08_22-01-27-86dc898-mute.mov\n
+11713  ffprobe -v error -select_streams v:0 -show_entries stream=duration -of default=noprint_wrappers=1:nokey=1 2023-02-08_22-01-27-86dc898.wav\n
+11714  ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 2023-02-08_22-01-27-86dc898.mov\n
+11715  mediainfo --Output='General;%Duration%' 2023-02-08_22-01-27-86dc898.mov\n
+11716  mediainfo --Output='General;%Duration%' 2023-02-08_22-01-27-86dc898.wav\n
+11717  ls
+11718  cp 2023-02-08_22-01-27-86dc898.wav test.wav
+11719  ffmpeg -y -stream_loop 5 -i test.wav -c copy test-loop05.wav
+11720  gaa
+11721  c
+11722  gc
+11723  gp
+11724  ffmpeg -i input.mp4 -filter_complex "[0:v]trim=duration=10,loop=5:300[v]" -map "[v]" output.mp4\n\n\n
+11725  pwd
+11726  ffmpeg -i input.mov -filter_complex "[0:v]trim=duration=10,loop=5:300[v]" -map "[v]" output.mp4\n\n\n
+11727  ffmpeg -i input.mp4 -filter_complex "[0:v]trim=duration=10,loop=5:300[v];[0:a]aloop=5:1[a]" -map "[v]" -map "[a]" output.mp4\n\n\n
+11728  ffmpeg -i input.mov -filter_complex "[0:v]trim=duration=10,loop=5:300[v];[0:a]aloop=5:1[a]" -map "[v]" -map "[a]" output.mov\n\n\n
+11729  ffmpeg -i input.mov -filter_complex "[0:v]trim=duration=10,loop=5:300[v];[0:a]atrim=duration=10,aloop=5:1[a]" -map "[v]" -map "[a]" output.mp4\n\n\n
+11730  ffmpeg -i input.mp4 -filter_complex "loop=loop=3:size=600:start=0" output.mp4\n
+11731  ffmpeg -i input.mov -filter_complex "loop=loop=3:size=600:start=0" output.mp4\n
+11732  open .
+11733  ffmpeg -y -stream_loop 5 -i in.mov -c copy in-loop05.mov
+11734  history |grep ffprobe
+11735  ffprobe in.mov
+11736  ffprobe -select_streams a -show_streams in.mov
+11737  cd /Users/tudvari/Downloads/Divers_20230209_1 
+11738  code .
+11739  z creative
+11740  git status
+11741  git add *.pde
+11742  git status
+11743  git add *.json
+11744  git commit -m "Debug - periodic function seems off"
+11745  gp
+11746  rm *.mov
+11747  rm *.wav
+11748  rm *.json
+11749  git status
+11750  git revert data/1.json
+11751  gaa
+11752  gc
+11753  gp
+11754  t shader
+11755  z shader
+11756  cd ..
+11757  clear
+11758  pwd
+11759  clear
+11760  ls
+11761  code .
+11762  cd pixelCards
+11763  ls
+11764  glslViewer scratch.frag -w 500 -h 500 -l
+11765  cd /Users/tudvari/Developer/2022-sept/2022-mmd1-creative-coding/project/
+11766  clear
+11767  pwd
+11768  clear
+11769  ffmpeg -y -framerate 60 -pattern_type glob -i '*.png' -i in.wav -preset veryslow -tune animation -c:v libx264 -pix_fmt yuv420p -crf 23 -shortest -map 0:v:0 -map 1:a:0 -f mp4 out.mov
+11770  ffmpeg -y -framerate 60 -pattern_type glob -i '*.png' -i in.wav -preset veryslow -tune animation -c:v libx264 -pix_fmt yuv420p -crf 23 -shortest -fflags +shortest -max_interleave_delta 100M -map 0:v:0 -map 1:a:0 -f mp4 out2.mp4
+11771  ffmpeg -y -framerate 60 -pattern_type glob -i '*.png' -preset veryslow -tune animation -c:v libx264 -pix_fmt yuv420p -crf 23 -f mp4 out-mute.mp4
+11772  ffmpeg -f lavfi -i anullsrc=channel_layout=stereo:sample_rate=44100 -i out-mute.mp4 -c:v copy -c:a aac -shortest out-mute-audio.mov\n
+11773  ffmpeg -y -framerate 60 -pattern_type glob -i '*.png' -i in.wav -preset veryslow -tune animation -c:v libx264 -pix_fmt yuv420p -crf 23 -shortest -fflags +shortest -max_interleave_delta 100M -map 0:v:0 -map 1:a:0 -f mp4 out2.mov
+11774  ffmpeg -y -framerate 60 -pattern_type glob -i '*.png' -preset veryslow -tune animation -c:v libx264 -pix_fmt yuv420p -crf 23 -f mp4 out-mute.mp4
+11775  ffmpeg -y -framerate 60 -pattern_type glob -i '*.png' -i in.wav -t 1 -preset veryslow -tune animation -c:v libx264 -pix_fmt yuv420p -crf 23 -max_interleave_delta 100M -map 0:v:0 -map 1:a:0 -f mp4 out-chatgpt.mp4\n
+11776  ffmpeg -y -framerate 60 -pattern_type glob -i '*.png' -i in.wav -t 1 -preset veryslow -tune animation -c:v libx264 -pix_fmt yuv420p -crf 23 -max_interleave_delta 200M -map 0:v:0 -map 1:a:0 -f mp4 out-chatgpt2.mp4\n
+11777  sox
+11778  brew install sox
+11779  ls
+11780  ls|grep *.mov
+11781  ffmpeg -i out-mute.mp4 -i in.wav -c:v copy -c:a aac out-combine-after.mp4\n
+11782  brew install sox
+11783  clear
+11784  ls
+11785  sox out2.mp4 out3.mp4 trim 0 1\n
+11786  sox out-chatgpt2.mp4 trim 0 1\n
+11787  sox out-chatgpt2.mp4 out3.mp4 trim 0 1\n
+11788  ffmpeg -y -framerate 60 -pattern_type glob -i '*.png' -i in.wav -t 1 -c:v libx264 -pix_fmt yuv420p -crf 23 -map 0:v:0 -map 1:a:0 -f mp4 out4.mp4\n
+11789  clear
+11790  ffmpeg -y -stream_loop 5 -i out-combine-after.mp4 -c copy tibor-loop05.mov\n
+11791  ffmpeg -y -i out-mute.mp4 -i in.wav -c:v copy -c:a aac -ar 44100 -shortest -map 0:v:0 -map 1:a:0 -f mp4 out5.mp4\n\n
+11792  ls
+11793  ffmpeg --version
+11794  brew updgrade ffmpeg
+11795  brew upgrade ffmpeg
+11796  ffmpeg -version
+11797  brew upgrade ffmpeg
+11798  brew update ffmpeg
+11799  ffmpeg -i out-mute.mp4 -i in.wav -c:v copy -c:a aac -b:a 192k out6.mp4\n\n\n
+11800  open .
+11801  ffmpeg -i out-mute.mp4 -f lavfi -i anullsrc -c:v copy -c:a aac -b:a 128k out-mute-audio.mp4\n
+11802  open .
+11803  ffmpeg -i out-mute.mp4 -f lavfi -i anullsrc=duration=duration=0:size=0 -c:v copy -c:a aac -b:a 128k out-mute-audio.mp4\n
+11804  ffmpeg -i out-mute.mp4 -f lavfi -i anullsrc=duration=0 -c:v copy -c:a aac -b:a 128k out-mute-audio.mp4\n
+11805  open .
+11806  ffmpeg -i out-mute.mp4 -f lavfi -i anullsrc=duration=0 -c:v copy -c:a pcm_s16le out-mute-audio.mp4\n
+11807  ffmpeg -i out-mute.mp4 -f lavfi -i anullsrc=duration=0 -c:v copy -c:a pcm_s16le out-mute-audio.mkv\n
+11808  ffmpeg -i out-mute-audio.mkv out-mute-audio.mp4\n
+11809  history| stream-loop
+11810  history| grep stream
+11811  ffmpeg -f lavfi -i anullsrc=channel_layout=stereo:sample_rate=44100 -t 1 silence-1s.wav\n
+11812  which ffmpeg
+11813  ffmpeg -i out-mute-audio.mkv out-mute-audio.mov\n
+11814  clear
+11815  ffmpeg -i out-mute.mp4 -i silence-1s.wav -c:v copy -c:a copy silence-1s.mkv\n\n\n\n
+11816  open .
+11817  ffmpeg -i out-mute.mp4 -i in.wav -c:v copy -c:a copy out-combined.mkv\n\n\n\n
+11818  ffmpeg -y -stream_loop 5 -i out-combined.mkv -c copy out-combined-loop5.mkv
+11819  open .
+11820  ffmpeg -i out-combined.mkv out-combined.mp4
+11821  ffmpeg -y -stream_loop 5 -i out-combined.mp4 -c copy out-combined-loop5.mp4
+11822  ffmpeg -i in.wav -c:a aac -b:a 128k output.aac\n
+11823  ffmpeg -i input.wav -c:a aac -b:a 128k -noaccuratetimestamp output2.aac\n
+11824  ffmpeg -i in.wav -c:a aac -b:a 128k -t <duration> output3.aac\n
+11825  ffmpeg -i in.wav -c:a aac -b:a 128k -t 1 output3.aac\n
+11826  qaac
+11827  ffmpeg -i output.aac -af "silenceremove=start_periods=1:start_duration=0:start_threshold=-60dB,silenceremove=stop_periods=1:stop_duration=0:stop_threshold=-60dB" -c:a aac -b:a 128k output-trim-silence.aac\n
+11828  ffmpeg -i output.aac -af "silenceremove=start_periods=1:start_duration=0:start_threshold=-120dB,silenceremove=stop_periods=1:stop_duration=0:stop_threshold=-120dB" -c:a aac -b:a 128k output-trim-silence-2.aac\n
+11829  ffmpeg -i output.aac -ss 0.1 -t $(ffmpeg -i input.aac 2>&1 | grep "Duration" | cut -d ' ' -f 4 | sed s/,//) -to -0.1 -c copy output-silence-3.aac\n
+11830  ffmpeg -i output.aac -ss 0.1 -t $(ffmpeg -i input.aac 2>&1 | grep "Duration" | cut -d ' ' -f 4 | sed s/,//) -to 0.1 -c copy output-trim-silence-2-manual.aac\n
+11831  ffmpeg -i output.aac -ss 0.1 -t $(ffmpeg -i input.aac 2>&1 | grep "Duration" | cut -d ' ' -f 4 | sed s/,//) -to .1 -c copy output-trim-silence-2-manual.aac\n
+11832  ffmpeg -i output.aac -ss 0.1 -t $(ffmpeg -i input.aac 2>&1 | grep "Duration" | cut -d ' ' -f 4 | sed s/,//) -to 5 -c copy output-trim-silence-2-manual.aac\n
+11833  cp output.aac input.aac
+11834  ffprobe -i input.aac -show_entries format=duration -v quiet -of csv="p=0"
+11835  ffmpeg -i input.aac -ss 0.02 -t 1 output-trim-3.aac\n
+11836  ffmpeg -i input.aac -ss 0.02 -t 0.5 output-trim-4.aac\n
+11837  ffmpeg -i input.wav -c:a libfdk_aac -b:a 128k output-libfdk.aac\n
+11838  ffmpeg -i out.wav -c:a libfdk_aac -b:a 128k output-libfdk.aac\n
+11839  ffmpeg -i in.wav -c:a libfdk_aac -b:a 128k output-libfdk.aac\n
+11840  brew options ffmpeg
+11841  brew tap homebrew-ffmpeg/ffmpeg\n\n
+11842  brew uninstall ffmpeg
+11843  brew options homebrew-ffmpeg/ffmpeg/ffmpeg\n
+11844  brew install homebrew-ffmpeg/ffmpeg/ffmpeg --with-openh264 --with-webp --with-libcaca --with-fdk-aac --with-jack
+11845  sudo xcodebuild -license accept
+11846  brew install homebrew-ffmpeg/ffmpeg/ffmpeg --with-openh264 --with-webp --with-libcaca --with-fdk-aac --with-jack
+11847  sudo xcode-select --install
+11848  brew install homebrew-ffmpeg/ffmpeg/ffmpeg --with-openh264 --with-webp --with-libcaca --with-fdk-aac --with-jack
+11849  brew install figlet 
+11850  figlet -help
+11851  figlet test
+11852  figlet Hello World 
+11853  brew install homebrew-ffmpeg/ffmpeg/ffmpeg --with-openh264 --with-webp --with-libcaca --with-fdk-aac --with-jack
+11854  clear
+11855  ffmpeg --version
+11856* z shader
+11857* cd ..
+11858* code .
+11859* glslViewer scratch.frag -w 500 -h 500 -l\n
+11860  clear
+11861  cd /Users/tudvari/Developer/2022-sept/2022-mmd1-creative-coding/project/
+11862  history
+11863  ffmpeg -i in.wav -c:a libfdk_aac -b:a 128k output-libfdk.aac
+11864  ffmpeg -i in.wav -c:a alac output-alac.m4a\n
+11865  clear
+11866  pwd
+11867  clear
+11868  ls
+11869  clear
+11870  ffmpeg -i out-mute.mp4 -i output-alac.m4a -c:v copy -c:a copy out-combined-alac.mp4\n\n\n\n
+11871  history|grep stream
+11872  ffmpeg -y -stream_loop 5 -i out-combined-alac.mp4 -c copy out-combined-alac-loop5.mp4
+11873  ffplay\n
+11874  ls
+11875  open .
+11876  ffplay 2023-02-11_16-20-25-75b44f2.mov
+11877  ffplay --help
+11878  ffplay --help |grep loop
+11879  ffplay -loop -1 2023-02-11_16-20-25-75b44f2.mov
+11880  ffplay -loop -1 2023-02-11_16-17-20-75b44f2.mov
+11881  ffplay -loop -1 2023-02-11_16-20-25-75b44f2.wav
+11882  ffplay -loop -1 2023-02-11_16-20-25-75b44f2.mov
+11883  ffmpeg -i test.mov -c:a vorbis -q:a 10 output.ogg
+11884  ffmpeg -i test.mov -c:a vorbis -q:a 10 -strict -2 output.ogg
+11885  ffplay -loop -1 output.ogg
+11886  ffmpeg -i test.mov -c:a vorbis -q:a 10 -strict -2 output.ogg
+11887  ffplay -loop -1 output.ogg
+11888  ffplay -loop -1 2023-02-11_16-20-25-75b44f2.mov
+11889  ffplay -loop -1 2023-02-11_16-20-25-75b44f2.wav
+11890  ffplay -loop -1 2023-02-11_16-20-25-75b44f2.mov
+11891  ffmpeg -i in2.mov -i in2.m4a -shortest -map 0:v:0 -map 0:a:0 -f mp4 out2.mov
+11892  ffmpeg -i in2.mov -i in2.m4a -shortest -map 0:v:0 -map 1:a:0 -f mp4 out2.mov
+11893  ffplay -loop -1 out2.mov
+11894  ffplay -loop -1 out2.m4a
+11895  ffplay -loop -1 in2.m4a
+11896  ffplay -loop -1 out2.mov
+11897  ffplay -loop -1 in2.m4a
+11898  ffplay -loop -1 in2.mov
+11899  ffmpeg -i in2.mov -i in2.m4a -shortest -map 0:v:0 -map 1:a:0 out2.mov
+11900  ffplay -loop -1 out2.mov
+11901  ffmpeg -i in2.mov -i in2.m4a -shortest  out2.mov
+11902  ffmpeg -i in2.mov -i in2.m4a -shortest -map 0:v:0 -map 1:a:0 out2.mov
+11903  ffplay -loop -1 out2.mov
+11904  ffprobe out2.mov
+11905  fprobe in2.mov
+11906  ffprobe in2.mov
+11907  ffprobe in2.m4a
+11908  ffprobe out2.m4a
+11909  ffprobe out2.mov
+11910  ffmpeg -i in2.mov -i in2.m4a -shortest -map 0:v:0 -map 1:a:0 out2.mp4
+11911  ffplay -loop -1 out2.mp4
+11912  ffprobe in2.m4a
+11913  history |grep alac
+11914  clear
+11915  pwd
+11916  cp in.wav input.wav
+11917  ffmpeg -i input.wav -c:a aac -b:a 128k -loop 1 output-aac.aac
+11918  ffmpeg -i input.wav -c:a libfdk_aac -vbr 4 output-fdk.aac
+11919  ffmpeg -i input.wav -c:a libfdk_aac -vbr 4 output-nero.aac
+11920  ffmpeg -i input.wav -c:a fdk-aac -vbr 3 output-fdk.aac
+11921  ffplay -loop -1 output-aac.aac
+11922  ffplay -loop -1 output-fdk.aac
+11923  history|grep fdk
+11924  ffprobe output-aac.aac
+11925  ffmpeg -i input.wav -c:a libfdk_aac -profile:a aac_he -b:a 128k output-aac_he.aac\n
+11926  ffmpeg -i input.wav -c:a libfdk_aac -profile:a aac_he_v2 -b:a 128k output-aac_he_v2.aac\n
+11927  ffprobe output-aac_he.aac
+11928  ffplay -loop -1 output-aac_he.aac
+11929  ffplay -loop -1 output-aac_he_v2.aac
+11930  ffmpeg -i input.wav -c:a libfdk_aac -profile:a aac_he_v2 -b:a 128k output-aac_he_v2_128k.aac\n
+11931  ffmpeg -i input.wav -c:a libfdk_aac -profile:a aac_he_v2 -b:a 256k output-aac_he_v2_256k.aac\n
+11932  ffplay -loop -1 output-aac_he_v2_256k.aac
+11933  ffplay -loop -1 output-aac_he_v2_128k.aac
+11934  ffmpeg -i input.wav -c:a libfdk_aac -profile:a aac_he_v2 -b:a 256k output-aac_he_v2_256k.aac\n
+11935  ffmpeg -i input.wav -c:a libfdk_aac -profile:a aac_he_v2 -padding 0 output-h2-nopad.aac\n
+11936  ffmpeg -i input.wav -c:a libfdk_aac -profile:a aac_he_v2 -option_unset padding output-h2-nopad.aac\n
+11937  ffmpeg -i input.wav -c:a libfdk_aac -profile:a aac_he_v2 -noaudio_padding output.aac\n
+11938  ffmpeg -i input.wav -ss 0 -t 1 -c:a aac -b:a 128k output-starttime.aac\n
+11939  ffplay -loop -1 output-starttime.aac
+11940  ffmpeg -i input.wav -c:a libvorbis -q:a 5 output.ogg\n\n
+11941  ffplay -loop -1 output.ogg
+11942  ffmpeg -i input.wav -c:a libvorbis -q:a 10 output.ogg\n
+11943  ffplay -loop -1 output.ogg
+11944  clear
+11945  pwd
+11946  afconvert
+11947  afconvert in.wav afout.aac
+11948  afconvert -hf
+11949  afconvert -h
+11950  afconvert in.wav output_file.aac -d aac -f m4af\n
+11951  ffplay -loop -1 output_file.aac
+11952  ffplay -loop -1 in.wav
+11953  afconvert in.wav output_file_2.aac -d aac -f m4af --padding 0\n
+11954  afconvert -h \n
+11955  clear
+11956  ls |grep mkv
+11957  ffplay -loop -1 out-combined.mkv
+11958  clear
+11959  history|grep copy
+11960  ffmpeg -i in.wav -i in.mov -c:a copy -c:v copy mkv.mkv
+11961  ffplay -loop -1 mkv.mkv
+11962  clear
+11963  ffmpeg -i in2.wav -i in2.mov -c:a copy -c:v copy mkv2.mkv
+11964  ffplay -loop -1 mkv2.mkv
+11965  ffplay -loop -1 in2.wav
+11966  ffplay -loop -1 in2.mov
+11967  ffprobe in2.mov
+11968  ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 in2.mov
+11969  ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 -sexagesimal in2.mov
+11970  ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 -sexagesimal in2.wav
+11971  ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 -sexagesimal mkv2.mkv
+11972  ffplay -loop -1 mkv2.mkv
+11973  ffplay -loop -1 -map 0:a mkv2.mkv\n
+11974  ffplay -map 0:a mkv2.mkv\n
+11975  ffplay -map 1:a mkv2.mkv\n
+11976  clear\n
+11977  ffprobe in2.wav
+11978  ffprobe mkv2.mkv
+11979  ffmpeg -i in2.wav -i in2.mov -c:a aac -b:a 192k -c:v copy -shortest mkv3.mkv\n\n
+11980  ffplay -loop -1 -map 0:a mkv3.mkv\n
+11981  ffplay -loop -1  mkv3.mkv\n
+11982  ffmpeg -i in2.wav -i in2.mov -c:a aac -b:a 512k -c:v copy -shortest mkv3.mkv\n\n
+11983  ffplay -loop -1  mkv3.mkv\n
+11984  ffmpeg -i in2.wav -i in2.mov -c:a aac -c:v copy -shortest out10.mp4\n
+11985  ffplay -loop -1 out10.mp4\n
+11986  ffmpeg -i in2.wav -i in2.mov -c:a aac -ar 44100 -c:v copy -shortest out11.mkv\n
+11987  ffplay -loop -1 out11.mkv\n
+11988  ffmpeg -i in2.wav -i in2.mov -c:a pcm_s16le -c:v copy -shortest out12.mkv\n
+11989  ffplay -loop -1 out12.mkv\n
+11990  history |grep loop\n
+11991  ffmpeg -i out12.mkv -stream_loop 10 -c copy out12-loop.mkv\n
+11992  history|grep steam\n
+11993  history|grep stream\n
+11994  ffmpeg -stream_loop 5 -i out12.mkv -c copy out12-loop.mkv
+11995  ffplay -loop -1 out12-loop.mkv\n
+11996  ffmpeg -i out12.mkv -af "afade=t=out:st=0:d=1,afade=t=in:st=1:d=1" -c:a copy out12-cross.mkv\n
+11997  ffmpeg -i out12.mkv -af "afade=t=out:st=0:d=1,afade=t=in:st=1:d=1" -c:a aac -c:v copy out12-cross.mkv\n
+11998  ffplay -loop -1 out12-cross.mkv\n
+11999  ffmpeg -i out12.mkv -af "afade=t=out:st=0:d=0.1,afade=t=in:st=1:d=0.1" -c:a aac -c:v copy out12-cross.mkv\n
+12000  ffplay -loop -1 out12-cross.mkv\n
+12001  ffplay -loop -1 out12.mkv\n
+12002  ffmpeg -i out12-loop.mkv -af "afade=t=out:st=0:d=0.1,afade=t=in:st=1:d=0.1" -c:a aac -c:v copy out12-cross.mkv\n
+12003  ffplay -loop -1 out12-loop.mkv\n
+12004  ffmpeg -i out12-loop.mkv -af "afade=t=out:st=0:d=1,afade=t=in:st=1:d=1" -c:a aac -c:v copy out12-cross.mkv\n
+12005  ffplay -loop -1 out12-loop.mkv\n
+12006  ffmpeg -i out12-loop.mkv -af "afade=t=out:st=0:d=1,afade=t=in:st=0:d=3" -c:a aac -c:v copy out12-cross.mkv\n
+12007  ffplay -loop -1 out12-loop.mkv\n
+12008  ffplay -loop -1 out12-cross.mkv\n
+12009  ffmpeg -i out12-loop.mkv -af "afade=t=out:st=0:d=1,afade=t=in:st=0:d=1" -c:a aac -c:v copy out12-cross.mkv\n
+12010  ffplay -loop -1 out12-cross.mkv\n
+12011  clear
+12012  ffmpeg -i out12-loop.mkv -af "afade=t=out:st=-1:d=1,afade=t=in:st=0:d=1" -c:a aac -c:v copy out12-cross.mkv\n
+12013  ffmpeg -i out12-loop.mkv -af "afade=t=in:st=0:d=1" -c:a aac -c:v copy out12-cross.mkv\n
+12014  ffplay -loop -1 out12-cross.mkv\n
+12015  ffmpeg -i out12.mkv -filter_complex "aevalsrc=0:d=0.6 [a_silence]; [0:a:0] [a_silence] acrossfade=d=0.6" out12-crossfade.mp4\n
+12016  ffplay -loop -1 out12-crossfade.mp4\n
+12017  history |grep duration\n
+12018  ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 -sexagesimal mkv2.mkv
+12019  ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 mkv2.mkv
+12020  ffmpeg -i out12-cross.mkv -filter_complex "aevalsrc=0:d=0.6 [a_silence]; [0:a:0] [a_silence] acrossfade=d=0.6" out12-crossfade.mp4\n
+12021  ffplay -loop -1 out12-crossfade.mp4\n
+12022  ffmpeg -i out12-cross.mkv -filter_complex "aevalsrc=0:d=0.1 [a_silence]; [0:a:0] [a_silence] acrossfade=d=0.1" out12-crossfade.mp4\n
+12023  ffplay -loop -1 out12-crossfade.mp4\n
+12024  ffmpeg -i out12-loop.mkv -af "afade=t=in:st=0:d=1,afade=t=out:st=duration-1:d=1" -c:v copy -c:a aac -b:a 256k out12-crossfade2.mp4\n\n
+12025  clear
+12026  pwd
+12027  clear
+12028  history|grep duration
+12029  ffprobe -i input.aac -show_entries format=duration -v quiet -of csv="p=0"
+12030  ffplay -loop out12.mkc\n
+12031  ffplay -loop out12.mkv\n
+12032  ffplay -loop -~out12.mkv\n
+12033  ffplay -loop -1 out12.mkv\n
+12034  ffprobe -i out12.mkv -show_entries format=duration -v quiet -of csv="p=0"
+12035  ffmpeg -i out12-loop.mkv -af "afade=t=out:st=$(ffprobe -i out12.mkv -show_entries format=duration -v quiet -of csv="p=0")-1:d=1,afade=t=in:st=0:d=1" -c:a aac -c:v copy out12-cross.mkv\n
+12036  duration=$(ffprobe -i out12.mkv -show_entries format=duration -v quiet -of csv="p=0")
+12037  echo $duration
+12038  duration=$( expr $(ffprobe -i out12.mkv -show_entries format=duration -v quiet -of csv="p=0") - 0.2)
+12039  duration=$( expr $(ffprobe -i out12.mkv -show_entries format=duration -v quiet -of csv="p=0") - 0.24)
+12040  duration=$( expr $(ffprobe -i out12.mkv -show_entries format=duration -v quiet -of csv="p=0"))
+12041  echo duration
+12042  echo $duration
+12043  duration=$( expr $(ffprobe -i out12.mkv -show_entries format=duration -v quiet -of csv="p=0") + 1)
+12044  duration=$( bc scale=2 $(ffprobe -i out12.mkv -show_entries format=duration -v quiet -of csv="p=0") + 1)
+12045  duration=$( bc -scale 2 $(ffprobe -i out12.mkv -show_entries format=duration -v quiet -of csv="p=0") + 1)
+12046  bc
+12047  duration=$( expr 1.00 + 1)
+12048  duration=$( expr 1.00 + 1.0)
+12049  duration=$( "1.00 + 1.0" | bc)
+12050  duration=$(echo "1.00 + 1.0" | bc)
+12051  echo $duration
+12052  $(echo "1.0000000000000 + 1.0" | bc)
+12053  echo $(echo "1.0000000000000 + 1.0" | bc)
+12054  clear
+12055  pwd
+12056  clera
+12057  clear
+12058  echo $(echo "1.0000000000000 + 1.0" | bc)
+12059  echo $(echo $(ffprobe -i out12.mkv -show_entries format=duration -v quiet -of csv="p=0") - 1 | bc)
+12060  echo $(echo $(ffprobe -i out12.mkv -show_entries format=duration -v quiet -of csv="p=0") - .1 | bc)
+12061  ffmpeg -i out12-loop.mkv -af "afade=t=out:st=$(echo $(ffprobe -i out12.mkv -show_entries format=duration -v quiet -of csv="p=0") - .1 | bc):d=1,afade=t=in:st=0:d=1" -c:a aac -c:v copy out12-cross.mkv
+12062  ffmpeg -i out12-loop.mkv -af "afade=t=out:st=$(echo $(ffprobe -i out12-loop.mkv -show_entries format=duration -v quiet -of csv="p=0") - .1 | bc):d=1,afade=t=in:st=0:d=1" -c:a aac -c:v copy out12-cross.mkv
+12063  ls
+12064  ffplay -loop -1 out12-loop.mkv
+12065  ffplay -loop -1 out12-cross.mkv
+12066  ffmpeg -i out12-loop.mkv -af "afade=t=out:st=2:d=1,afade=t=in:st=0:d=1" -c:a aac -c:v copy out12-cross.mkv
+12067  ffplay -loop -1 out12-cross.mkv
+12068  ffmpeg -i out12-loop.mkv -af "afade=t=out:st=2.000000:d=1,afade=t=in:st=0:d=1" -c:a aac -c:v copy out12-cross.mkv
+12069  ffplay -loop -1 out12-cross.mkv
+12070  ffmpeg -i out12-loop.mkv -af "afade=t=out:st=$(echo $(ffprobe -i out12-loop.mkv -show_entries format=duration -v quiet -of csv="p=0") - 1 | bc):d=1,afade=t=in:st=0:d=1" -c:a aac -c:v copy out12-cross.mkv
+12071  ffplay -loop -1 out12-cross.mkv
+12072  ffmpeg -i out12-loop.mkv -af "afade=t=out:st=$(echo $(ffprobe -i out12-loop.mkv -show_entries format=duration -v quiet -of csv="p=0") - 0.1 | bc):d=0.1,afade=t=in:st=0:d=0.1" -c:a aac -c:v copy out12-cross.mkv
+12073  ffplay -loop -1 out12-cross.mkv
+12074  ffmpeg -i out12-loop.mkv -af "afade=t=out:st=$(echo $(ffprobe -i out12-loop.mkv -show_entries format=duration -v quiet -of csv="p=0") - 0.2 | bc):d=0.2,afade=t=in:st=0:d=0.2" -c:a aac -c:v copy out12-cross.mkv
+12075  ffplay -loop -1 out12-cross.mkv
+12076  ffmpeg -i out12-loop.mkv -af "afade=t=out:st=$(echo $(ffprobe -i out12-loop.mkv -show_entries format=duration -v quiet -of csv="p=0") - 0.5 | bc):d=0.5,afade=t=in:st=0:d=0.5" -c:a aac -c:v copy out12-cross.mkv
+12077  ffplay -loop -1 out12-cross.mkv
+12078  ffmpeg -i out12-loop.mkv -af "afade=t=out:st=$(echo $(ffprobe -i out12-loop.mkv -show_entries format=duration -v quiet -of csv="p=0") - 0.3 | bc):d=0.3,afade=t=in:st=0:d=0.3" -c:a aac -c:v copy out12-cross.mkv
+12079  ffplay -loop -1 out12-cross.mkv
+12080  ffmpeg -i out12-loop.mkv -af "afade=t=out:st=$(echo $(ffprobe -i out12-loop.mkv -show_entries format=duration -v quiet -of csv="p=0") - 1 | bc):d=1,afade=t=in:st=0:d=1" -c:a aac -c:v copy out12-cross.mkv
+12081  ffplay -loop -1 out12-cross.mkv
+12082  ffmpeg -i out12-loop.mkv -af "fade=t=out:st=$(echo $(ffprobe -i out12-loop.mkv -show_entries format=duration -v quiet -of csv="p=0") - 1 | bc):d=1,fade=t=in:st=0:d=1" -c:a aac -c:v copy out12-cross.mkv
+12083  ffmpeg -i out12-loop.mkv -vf "fade=t=in:st=0:d=1,fadet=out=st=$(echo $(ffprobe -i out12-loop.mkv -show_entries format=duration -v quiet -of csv="p=0") - 1 | bc):d=1" -af "afade=t=out:st=$(echo $(ffprobe -i out12-loop.mkv -show_entries format=duration -v quiet -of csv="p=0") - 1 | bc):d=1,afade=t=in:st=0:d=1" -c:a aac -c:v copy out12-cross.mkv
+12084  ffmpeg -i out12-loop.mkv -vf "fade=t=in:st=0:d=1,fade=t=out:st=$(echo $(ffprobe -i out12-loop.mkv -show_entries format=duration -v quiet -of csv="p=0") - 1 | bc):d=1" -af "afade=t=out:st=$(echo $(ffprobe -i out12-loop.mkv -show_entries format=duration -v quiet -of csv="p=0") - 1 | bc):d=1,afade=t=in:st=0:d=1" -c:a aac -c:v copy out12-cross.mkv
+12085  ffmpeg -i out12-loop.mkv -vf "fade=t=in:st=0:d=1,fade=t=out:st=$(echo $(ffprobe -i out12-loop.mkv -show_entries format=duration -v quiet -of csv="p=0") - 1 | bc):d=1" -af "afade=t=out:st=$(echo $(ffprobe -i out12-loop.mkv -show_entries format=duration -v quiet -of csv="p=0") - 1 | bc):d=1,afade=t=in:st=0:d=1" -c:a aac  out12-cross.mkv
+12086  ffplay -loop -1 out12-cross.mkv
+12087  ffmpeg -i out12-loop.mkv -vf "fade=t=in:st=0:d=1,fade=t=out:st=$(echo $(ffprobe -i out12-loop.mkv -show_entries format=duration -v quiet -of csv="p=0") - 1.5 | bc):d=1" -af "afade=t=out:st=$(echo $(ffprobe -i out12-loop.mkv -show_entries format=duration -v quiet -of csv="p=0") - 1 | bc):d=1,afade=t=in:st=0:d=1" -c:a aac  out12-cross.mkv
+12088  ffplay -loop -1 out12-cross.mkv
+12089  ffmpeg -i out12-loop.mkv -vf "fade=t=in:st=0:d=1,fade=t=out:st=$(echo $(ffprobe -i out12-loop.mkv -show_entries format=duration -v quiet -of csv="p=0") - 2.5 | bc):d=2" -af "afade=t=out:st=$(echo $(ffprobe -i out12-loop.mkv -show_entries format=duration -v quiet -of csv="p=0") - 2.5 | bc):d=2,afade=t=in:st=0:d=1" -c:a aac  out12-cross.mkv
+12090  ffplay -loop -1 out12-cross.mkv
+12091  ffmpeg -i out12-loop.mkv -vf "fade=t=in:st=0:d=1,fade=t=out:st=$(echo $(ffprobe -i out12-loop.mkv -show_entries format=duration -v quiet -of csv="p=0") - 2.5 | bc):d=2" -af "afade=t=out:st=$(echo $(ffprobe -i out12-loop.mkv -show_entries format=duration -v quiet -of csv="p=0") - 2.7 | bc):d=2,afade=t=in:st=0:d=1" -c:a aac  out12-cross.mkv
+12092  ffplay -loop -1 out12-cross.mkv
+12093  ffmpeg -i out12-loop.mkv -vf "fade=t=in:st=0.2:d=1,fade=t=out:st=$(echo $(ffprobe -i out12-loop.mkv -show_entries format=duration -v quiet -of csv="p=0") - 2.5 | bc):d=2" -af "afade=t=out:st=$(echo $(ffprobe -i out12-loop.mkv -show_entries format=duration -v quiet -of csv="p=0") - 2.7 | bc):d=2,afade=t=in:st=0:d=1" -c:a aac  out12-cross.mkv
+12094  ffplay -loop -1 out12-cross.mkv
+12095  ffmpeg -i out12-loop.mkv -vf "fade=t=in:st=0.5:d=1,fade=t=out:st=$(echo $(ffprobe -i out12-loop.mkv -show_entries format=duration -v quiet -of csv="p=0") - 2.5 | bc):d=2" -af "afade=t=out:st=$(echo $(ffprobe -i out12-loop.mkv -show_entries format=duration -v quiet -of csv="p=0") - 2.7 | bc):d=2,afade=t=in:st=0.25:d=1" -c:a aac  out12-cross.mkv
+12096  ffplay -loop -1 out12-cross.mkv
+12097  git status
+12098  git add *.pde
+12099  git commit -m "Changes to the encoding process"
+12100  clear
+12101  pwd
+12102  clear
+12103  ls
+12104  $(echo $(ffprobe -i out12.mkv -show_entries format=duration -v quiet -of csv="p=0") - .1 | bc)
+12105  echo $(echo $(ffprobe -i out12.mkv -show_entries format=duration -v quiet -of csv="p=0") - .1 | bc)
+12106  ffplay -loop -1 out12.mkv
+12107  clear
+12108  ffplay -loop -1 out12.mkv
+12109  echo "5 / 2" | bcs
+12110  echo "5 / 2" | bc
+12111  echo "5 / 2" |bc
+12112  echo "5 / 2" | bc
+12113  echo "5.00 / 2" | bc
+12114  echo "5.00 / 2.0" | bc
+12115  echo "5.00 / 2.5" | bc
+12116  echo "5.00 / 2.6" | bc
+12117  echo "5.00 / 2.5" | bc
+12118  echo "5.00 - .1" | bc
+12119  echo "25 / 0.9" | bc
+12120  duration=$(echo "25 / 0.9" | bc) && echo $duration
+12121  vid="test"
+12122  echo $vid
+12123  code .
+12124* chmod +x encode-for-ig.sh
+12125* ./encode-for-ig.sh out12.mkv
+12126  history| grep afade
+12127* ./encode-for-ig.sh out12.mkv
+12128* ffplay -loop -1 out12.mkv
+12129* ./encode-for-ig.sh out12.mkv
+12130* ffplay out12-looped-faded.mkv
+12131* ls
+12132* cd
+12133* ls
+12134* ls |grep out12-looped-faded.mkv
+12135* cd /
+12136* ls |grep out12-looped-faded.mkv
+12137* ls
+12138* ./encode-for-ig.sh out12.mkv
+12139* ls|grep faded
+12140* ./encode-for-ig.sh out12.mkv
+12141  clear
+12142  /usr/local/bin/ffmpeg -y -r 60 -pattern_type glob -i '*.png' -c:v huffyuv -pix_fmt yuv444p -r 60 output.avi
+12143  ls
+12144  open output.avi
+12145  vlc
+12146  vlc output.avi
+12147* ./encode-for-ig.sh 2023-02-12_11-29-10-89addf0
+12148* vlc 2023-02-12_11-29-10-89addf0-looped.avi
+12149  history |grep aac
+12150* ./encode-for-ig.sh 2023-02-12_11-29-10-89addf0
+12151* rm 2023-02-12_11-29-10-89addf0-looped.avi
+12152* ./encode-for-ig.sh 2023-02-12_11-29-10-89addf0
+12153  clear
+12154  pwd
+12155  rm *.png
+12156  ls
+12157  rm *.json
+12158  rm *.mkv
+12159  rm *.mp4
+12160  ls
+12161  rm *.mov
+12162  ls
+12163  rm *.wav *.m4a
+12164  ls
+12165  rm *.wav *.aac *.avi 
+12166  ls
+12167  rm *.wav *.aac *.avi 
+12168  rm *.aac *.avi 
+12169  ls
+12170  git status
+12171  rm *.ogg

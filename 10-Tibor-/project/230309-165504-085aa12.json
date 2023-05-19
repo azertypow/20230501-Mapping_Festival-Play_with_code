@@ -1,0 +1,126 @@
+{
+  "/ani1Start": {
+    "min": 0,
+    "max": 1,
+    "value": 0
+  },
+  "/aFillMix": {
+    "min": 0,
+    "max": 1,
+    "value": 0.07000000029802322
+  },
+  "/ani2trans": {"value": 2},
+  "/rows": {
+    "min": 1,
+    "max": 200,
+    "value": 152
+  },
+  "/periodicFuncScale": {
+    "min": 0.009999999776482582,
+    "max": 10,
+    "value": 0.4095999598503113
+  },
+  "/numFrames": {
+    "min": 10,
+    "max": 1000,
+    "value": 39.69999694824219
+  },
+  "/sliderSeed": {
+    "min": 10000,
+    "max": 99999,
+    "value": 27099.810546875
+  },
+  "/rad": {
+    "min": 0.009999999776482582,
+    "max": 5,
+    "value": 0.05989999324083328
+  },
+  "/ani2Dur": {
+    "min": 0,
+    "max": 1,
+    "value": 0.20000000298023224
+  },
+  "/offMultX": {
+    "min": 0,
+    "max": 1000,
+    "value": 1000
+  },
+  "/off2": {
+    "min": 0,
+    "max": 1,
+    "value": 0
+  },
+  "/offMultY": {
+    "min": 0,
+    "max": 1000,
+    "value": 1000
+  },
+  "/off3": {
+    "min": 0,
+    "max": 1,
+    "value": 1
+  },
+  "/scl": {
+    "min": 0.0010000000474974513,
+    "max": 0.0989999994635582,
+    "value": 0.0029599997214972973
+  },
+  "/mx": {
+    "min": 0.009999999776482582,
+    "max": 1,
+    "value": 0.009999999776482582
+  },
+  "/my": {
+    "min": 0.009999999776482582,
+    "max": 1,
+    "value": 0.009999999776482582
+  },
+  "/off1": {
+    "min": 0,
+    "max": 1,
+    "value": 1
+  },
+  "/bgFill": {
+    "min": 0,
+    "max": 255,
+    "value": 22.94999885559082
+  },
+  "/dotSizePct": {
+    "min": 0,
+    "max": 0.03999999910593033,
+    "value": 3.9999998989515007E-4
+  },
+  "/cols": {
+    "min": 1,
+    "max": 200,
+    "value": 150
+  },
+  "/offScl": {
+    "min": 0,
+    "max": 1,
+    "value": 0
+  },
+  "/ani1trans": {"value": 0},
+  "/stepLabel": {
+    "stringValue": "step ",
+    "value": 0
+  },
+  "/ani2Start": {
+    "min": 0,
+    "max": 1,
+    "value": 0.5
+  },
+  "/label": {
+    "stringValue": "4.21FPS",
+    "value": 0
+  },
+  "/ani1Dur": {
+    "min": 0,
+    "max": 1,
+    "value": 0.20000000298023224
+  },
+  "/Animlabel": {
+    "stringValue": "anim 0/45",
+    "value": 0
+  }
+}

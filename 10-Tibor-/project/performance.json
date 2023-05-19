@@ -1,0 +1,65 @@
+{
+  "temp": [
+    { "to": 8, "duration": 0.1, "delay": 0.1, "fade": "Ani.LINEAR", "c": "start with nothing" },
+    { "to": 9, "duration": 10, "delay": 10, "fade": "Ani.QUAD_IN_OUT" }
+
+  ],
+
+
+  "transitions": [
+    { "to": 0, "duration": 0.1, "delay": 0.1, "fade": "Ani.LINEAR", "c": "start with nothing" },
+    { "to": 1, "duration": 10, "delay": 10, "fade": "Ani.QUAD_IN_OUT" },
+
+    { "to": 2, "duration": 0.2, "delay": 1, "fade": "Ani.QUAD_IN_OUT" },
+    { "to": 3, "duration": 10, "delay": 1, "fade": "Ani.QUAD_IN_OUT" },
+
+
+    { "to": 0, "duration": 0.1, "delay": 0.1, "fade": "Ani.LINEAR", "c": "start with nothing" },
+    { "to": 1, "duration": 10, "delay": 0.1, "fade": "Ani.QUAD_IN_OUT" },
+    { "to": 2, "duration": 0.2, "delay": 1, "fade": "Ani.QUAD_IN_OUT" },
+    { "to": 1, "duration": 0.2, "delay": 1, "fade": "Ani.QUAD_IN_OUT" },
+    { "to": 2, "duration": 0.2, "delay": 1, "fade": "Ani.QUAD_IN_OUT" },
+
+
+
+
+    { "to": 2, "duration": 5, "delay": 10, "fade": "Ani.LINEAR" },
+    { "to": 2, "duration": 0.1, "delay": 10, "fade": "Ani.LINEAR" },
+    { "to": 0, "duration": 0.1, "delay": 2, "fade": "Ani.LINEAR" },
+    { "to": 1, "duration": 0.1, "delay": 2, "fade": "Ani.LINEAR" }
+  ],
+  "comments": ["Start with nothing "],
+  "easings": [
+    "Ani.LINEAR",
+    "Ani.QUAD_IN",
+    "Ani.QUAD_OUT",
+    "Ani.QUAD_IN_OUT",
+    "Ani.CUBIC_IN",
+    "Ani.CUBIC_IN_OUT",
+    "Ani.CUBIC_OUT",
+    "Ani.QUART_IN",
+    "Ani.QUART_OUT",
+    "Ani.QUART_IN_OUT",
+    "Ani.QUINT_IN",
+    "Ani.QUINT_OUT",
+    "Ani.QUINT_IN_OUT",
+    "Ani.SINE_IN",
+    "Ani.SINE_OUT",
+    "Ani.SINE_IN_OUT",
+    "Ani.CIRC_IN",
+    "Ani.CIRC_OUT",
+    "Ani.CIRC_IN_OUT",
+    "Ani.EXPO_IN",
+    "Ani.EXPO_OUT",
+    "Ani.EXPO_IN_OUT",
+    "Ani.BACK_IN",
+    "Ani.BACK_OUT",
+    "Ani.BACK_IN_OUT",
+    "Ani.BOUNCE_IN",
+    "Ani.BOUNCE_OUT",
+    "Ani.BOUNCE_IN_OUT",
+    "Ani.ELASTIC_IN",
+    "Ani.ELASTIC_OUT",
+    "Ani.ELASTIC_IN_OUT"
+  ]
+}
