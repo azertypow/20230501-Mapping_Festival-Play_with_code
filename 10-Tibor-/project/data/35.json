@@ -18,7 +18,7 @@
   "/periodicFuncScale": {
     "min": 0.009999999776482582,
     "max": 10,
-    "value": 0.009999999776482582
+    "value": 1.0393215417861938
   },
   "/numFrames": {
     "min": 10,
@@ -43,7 +43,7 @@
   "/offMultX": {
     "min": 0,
     "max": 1000,
-    "value": 20
+    "value": 51.91696548461914
   },
   "/off2": {
     "min": 0,
@@ -83,12 +83,12 @@
   "/bgFill": {
     "min": 0,
     "max": 255,
-    "value": 5.099999904632568
+    "value": 5.100000381469727
   },
   "/dotSizePct": {
     "min": 0,
     "max": 0.03999999910593033,
-    "value": 0.036399997770786285
+    "value": 0.03923323005437851
   },
   "/cols": {
     "min": 1,
@@ -102,7 +102,7 @@
   },
   "/ani1trans": {"value": 0},
   "/stepLabel": {
-    "stringValue": "step ",
+    "stringValue": "step 3",
     "value": 0
   },
   "/ani2Start": {
@@ -111,7 +111,7 @@
     "value": 0.5
   },
   "/label": {
-    "stringValue": "60.95FPS",
+    "stringValue": "55.57FPS",
     "value": 0
   },
   "/ani1Dur": {
@@ -120,7 +120,7 @@
     "value": 0.20000000298023224
   },
   "/Animlabel": {
-    "stringValue": "anim 35/45",
+    "stringValue": "anim 1/9",
     "value": 0
   }
 }

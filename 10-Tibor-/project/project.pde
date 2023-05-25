@@ -3,6 +3,13 @@ A long take on particles
 Tibor Udvari
 2022 */
 
+// Launch instructions
+// 1. Add Mac / Computer address in Touch OSC 
+// 2. Add iPad address from screen here
+String oscRemoteAddress = "172.20.10.2";
+
+// todo - load sequences with the iPad
+
 // connect OSC with Chuck
 
 import java.util.HashMap; 
@@ -10,11 +17,11 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.Map;
 import java.util.function.Function;
 import spout.*;
+import java.lang.reflect.Field;
 
 boolean isWindows = false;
 
 Spout spout;
-String oscRemoteAddress = "10.0.1.91";
 int oscPort = 12000;
 
 final int instagramMinW = 500;
@@ -51,13 +58,13 @@ int H = 1800;
 
 int W = 5744; 
 int H = 900;
-float ratio = 0.1;
+float ratio = 0.25;
 
 // */
 
 OpenSimplexNoise noise;
 ControlP5 cp5;
-boolean wrappingX = true;
+boolean wrappingX = false;
 
 float numFrames = 60;
 
@@ -88,10 +95,11 @@ float off1 = 1.;
 float off2 = 0.;
 float off3 = 0.;
 
-boolean periodicFuncDebug = true;
+boolean periodicFuncDebug = false;
 float offScl = 0.15;
 float periodicFuncScale = 1;
 float dotSizePct = 0.01;
+float faderMix = 0;
 
 boolean cp5Visible = true;
 
@@ -127,11 +135,11 @@ float[] waveTable;
 
 float gpan = 0f; // global pan
 
-class CustomWaveForm implements Waveform {
-  int loopCounter = 0;
+int loopCounter = 0;
 
-  float value(float v) {
-    float t = 1.0 * frameCount/numFrames;
+float sampleValue(float v) {
+  
+      float t = 1.0 * frameCount/numFrames;
     //v = (v + (t * audioFreq ) % 1) % 1;
     v = fract(t) + 1. * loopCounter/audioFreq;
     float pv = fract(t) + 1. * ((loopCounter * 2. - 1) % loopCounter)/audioFreq;
@@ -184,7 +192,14 @@ class CustomWaveForm implements Waveform {
     gpan = constrain(gpan, -.9, .9);
     panPatch.setPan(gpan);
     gAccu = accu;
+    
     return accu;
+}
+
+class CustomWaveForm implements Waveform {
+
+  float value(float v) {
+    return sampleValue(v);
   }
 }
 
@@ -289,9 +304,7 @@ void drawDots() {
         } else if (newX < strokeWeight * .5) {
           b.point( W + newX, newY);
         }
-        
       } 
-      
       //b.point((int)x+dx, (int)y+dy);
     }
   }
@@ -322,14 +335,9 @@ void setup() {
   out = minim.getLineOut();
 
   CustomWaveForm customWaveForm = new CustomWaveForm();
-
-  // 10 - frequency, 1f - amplitude
-  
-  
-  //wave = new Oscil( audioFreq, 1f, customWaveForm );
-  // debug the addition of the waveform
+  wave = new Oscil( audioFreq, 1f, customWaveForm );
   panPatch = new Pan(0.);
-  //dotSizePct
+  
   //wave = new Oscil( map(), 1f, customWaveForm );
   //wave.patch(panPatch).patch(out);
 
@@ -348,6 +356,11 @@ void setup() {
   }
 
 
+  setupKeyboardOscListener();
+  
+  
+  // hide it
+  toggleCP5Visible();
 }
 
 boolean greybox = false;
@@ -373,7 +386,57 @@ int stepCounter = 0;
 int pStepCounter = 0;
 
 void draw() {
+    
+  if (anims != null) {
+    boolean isTransitioning = false;
+    for (Ani anim : anims) 
+    {   
+      if (anim.isPlaying()) {
+        isTransitioning = true;
+        break;
+      }
+    }
+    
+    setOscValue("/transition/transitioning", isTransitioning ? 1 : 0);  
+  }
+  
   //println(seq.getTime() + " - " + seq.getStepNumber());
+  
+  float sample = sampleValue(0);
+  
+  OscMessage chuckMessage = new OscMessage("/noise");
+  chuckMessage.add(sample);
+  chuckOSC.send(chuckMessage, chuckRemote);
+  
+  OscMessage numMessage = new OscMessage("/num");
+  numMessage.add(cols * rows);
+  chuckOSC.send(numMessage, chuckRemote);
+  
+  OscMessage sizeMsg = new OscMessage("/size");
+  sizeMsg.add(map(dotSizePct, 0, 0.015, 0.0, 1.0));
+  chuckOSC.send(sizeMsg, chuckRemote);
+  
+  
+  
+  OscMessage periodicMsg = new OscMessage("/funScale");
+  periodicMsg.add(periodicFuncScale);
+  chuckOSC.send(periodicMsg, chuckRemote);
+  
+  
+  OscMessage radMsg = new OscMessage("/rad");
+  radMsg.add(rad);
+  chuckOSC.send(radMsg, chuckRemote);
+  
+  OscMessage bgMsg = new OscMessage("/bg");
+  bgMsg.add(bgFill);
+  chuckOSC.send(bgMsg, chuckRemote);
+  
+  OscMessage fillMsg = new OscMessage("/alpha");
+  fillMsg.add(aFillMix);
+  chuckOSC.send(fillMsg, chuckRemote);
+  
+  
+  
   
   drawDots();
   image(b, 0, 0, width, height);
