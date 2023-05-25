@@ -38,7 +38,7 @@ class Herbe {
 
   void display() {
     pushMatrix();
-    //tempspousse();
+    tempspousse();
     champspousse();
     translate(x, y, z);
     rotateX(sin(timer)*radians(rad));
@@ -76,12 +76,16 @@ class Herbe {
 
   void tempspousse() {
     // cr = controltaille;
+    
+ 
 
     if (mode=="pousse" && cr<crMax) {
+      //println("POUSSE");
         cr+=vitCr;
     }
 
     if (mode=="petit" && cr>5) {
+      //println("DEPOUSSE");
         cr-=vitCr;
     }
     
