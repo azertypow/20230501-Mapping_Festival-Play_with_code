@@ -178,13 +178,13 @@ void noteOn(Note note) {
   println("Channel:" + note.channel());
   println("Value:" + note.pitch());
 
-  if ( note.pitch() == 44 ) {
+  if ( note.pitch() == 40 ) {
     println("44");
 
     jellyNbr++;
     tabJelly.add(new Jellyfish(0, 0, s1));
   }
-  if ( note.pitch() == 45 ) {
+  if ( note.pitch() == 41 ) {
     println("45");
     performanceRunning = false;
   }
@@ -205,26 +205,26 @@ void controllerChange(ControlChange change) {
   println("Number:" + change.number());
   println("Value:" + change.value());
 
-  if ( change.number() == 1 ) {
+  if ( change.number() == 74 ) {
     background = change.value();
     println(background);
   }
 
-  if ( change.number() == 2 ) {
-    println("in 2");
-    for (int i = 0; i < swArray.length; i++) {
-      swArray[i].r.set(swArray[i].r.size(), 50);
-    }
-  }
+  //if ( change.number() == 70 ) {
+  //  println("in 2");
+  //  for (int i = 0; i < swArray.length; i++) {
+  //    swArray[i].r.set(swArray[i].r.size(), 50);
+  //  }
+  //}
 
-  if ( change.number() == 3 ) {
+  if ( change.number() == 70 ) {
     println("in 3");
     for (int i = 0; i < flock.boids.size(); i++) {
         flock.boids.get(i).maxforce = map(change.value(), 0, 127, 0.005, 0.05);
     }
   }
 
-  if ( change.number() == 4 ) {
+  if ( change.number() == 71 ) {
     println("in 4");
     for (int i = 0; i < flock.boids.size(); i++) {
         flock.boids.get(i).maxspeed = map(change.value(), 0, 127, 1, 5);
