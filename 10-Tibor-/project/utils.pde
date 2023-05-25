@@ -1,6 +1,46 @@
 AudioRecorder audioRecorder;
 WaveformRecorder wr;
 
+
+public void setPropertiesFromString(ControlP5 cp5, String propertiesString) {
+  String[] properties = propertiesString.split(",");
+  for (String prop : properties) {
+    String[] parts = prop.split(":");
+    String propertyName = parts[0];
+    float value = Float.parseFloat(parts[1]);
+
+    // Get the controller and set its value
+    controlP5.Controller controller = cp5.getController(propertyName);
+    if (controller != null) {
+      controller.setValue(value);
+    } else {
+      println("No controller named " + propertyName);
+    }
+  }
+}
+
+public void setPropertiesFromString(Object targetObject, String propertiesString) {
+    String[] properties = propertiesString.split(",");
+    for (String prop : properties) {
+        String[] parts = prop.split(":");
+        String propertyName = parts[0];
+        float value = Float.parseFloat(parts[1]);
+
+        try {
+            // Use reflection to get the field in the target object
+            Field field = targetObject.getClass().getDeclaredField(propertyName);
+            field.setAccessible(true);
+
+            // Set the field's value
+            field.setFloat(targetObject, value);
+        } catch (NoSuchFieldException e) {
+            System.err.println("No field named " + propertyName + " in object");
+        } catch (IllegalAccessException e) {
+            System.err.println("Cannot access field " + propertyName);
+        }
+    }
+}
+
 float fract(float v) {
   return v % 1.;
 }

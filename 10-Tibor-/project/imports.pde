@@ -135,7 +135,6 @@ void initHook() {
     public void oscEvent(OscMessage m) {
       chuckOSC.send(m, chuckRemote);
 
-      
       controlP5.Controller c = fromOscToController.get(m.addrPattern());
       if (c!=null) {
         Object[] o = m.arguments();
@@ -264,14 +263,14 @@ void setupCP5() {
   sliders.add(dotSizePctSlider);
 
   //Slider colsSlider = cp5.addSlider("cols", 1, 300 * 7.1);
-  Slider colsSlider = cp5.addSlider("cols", 1, 200);
+  Slider colsSlider = cp5.addSlider("cols", 1, 50);
   colsSlider.listen(true);
   colsSlider.setDefaultValue(5);
   //colsSlider.listen(true);
   controllers.add(colsSlider);
   sliders.add(colsSlider);
 
-  Slider rowsSlider = cp5.addSlider("rows", 1, 200);
+  Slider rowsSlider = cp5.addSlider("rows", 1, 50);
   rowsSlider.listen(true);
   rowsSlider.setDefaultValue(5);
   controllers.add(rowsSlider);
@@ -325,6 +324,11 @@ void setupCP5() {
   offsetScaleSlider.setDefaultValue(1);
   controllers.add(offsetScaleSlider);
   sliders.add(offsetScaleSlider);
+  
+  
+
+
+
 
   Slider ani1StartSlider = cp5.addSlider("ani1Start", 0., 1.);
   controllers.add(ani1StartSlider);
@@ -429,6 +433,8 @@ void setupCP5() {
   for (int i = 0; i < sliders.size(); i++) {
     controlP5.Controller c = sliders.get(i);
     //c.listen(true);
+    
+    
     hook(c, "/1/fader/" + (i + 1));
     hook("/1/fader/" + (i + 1), c);
   }

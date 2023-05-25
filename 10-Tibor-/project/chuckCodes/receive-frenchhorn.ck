@@ -1,7 +1,7 @@
 // Make it like the wind
 
 FrencHrn fh => JCRev r => Pan2 p => dac;
-.5 => fh.gain;
+.9 => fh.gain;
 .4 => r.mix;
 
 1000::ms => dur refreshMillis;
@@ -30,6 +30,11 @@ oin.addAddress("/cols, f");
 oin.addAddress("/rows, f");
 oin.addAddress("/dotSizePct, f");
 oin.addAddress("/mx, f");
+oin.addAddress("/my, f");
+oin.addAddress("/aFillMix, f");
+oin.addAddress("/bgFill, f");
+oin.addAddress("/offScl, f");
+oin.addAddress("/rad, f");
 
 fun void foo( int a )
 {
