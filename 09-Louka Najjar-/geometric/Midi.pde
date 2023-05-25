@@ -3,7 +3,7 @@ MidiBus myBus;
 
 void midiSetup() {
   MidiBus.list(); // List all devices
-  myBus = new MidiBus(this, 1, 0);
+  myBus = new MidiBus(this, 2, 0);
 }
 
 void noteOn(Note note) {
@@ -37,7 +37,7 @@ void noteOn(Note note) {
   if (note.pitch() == 37) {
     if (state != State.TURN) state = State.TURN;
   }
-  
+
   if (note.pitch() == 39) {
     velocityBoost = 2;
   }
@@ -51,7 +51,7 @@ void noteOff(Note note) {
   println("Channel:" + note.channel());
   println("Pitch:" + note.pitch());
   println("Velocity:" + note.velocity());
-  
+
   if (note.pitch() == 39) {
     velocityBoost = 1;
   }
