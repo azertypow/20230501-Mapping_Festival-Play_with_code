@@ -94,7 +94,7 @@ void setup() {
 
   //                      select input here
   //                        |
-  myBus = new MidiBus(this, 1, 0);
+  myBus = new MidiBus(this, 2, 0);
 }
 
 int index=7;
