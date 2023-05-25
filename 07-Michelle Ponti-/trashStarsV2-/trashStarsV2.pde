@@ -199,6 +199,12 @@ public void draw() {
       println(ID);
     }
   }
+
+    // Send the texture of the drawing sufrface
+    spout.sendTexture();
+
+
+  println(frameRate);
 }
 
 ///////////////////////// END
