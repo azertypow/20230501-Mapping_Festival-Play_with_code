@@ -1,3 +1,8 @@
+
+
+### At start of your main file
+``` java
+
 // IMPORT THE SPOUT LIBRARY
 import spout.*;
 // DECLARE A SPOUT OBJECT
@@ -7,8 +12,11 @@ Spout spout;
 
 …your code
 
+```
 
 
+### In setup() function
+``` java
 void setup() {
 
   // PROJECTION SIZE
@@ -44,5 +52,4 @@ void draw()  {
     // Send the texture of the drawing sufrface
     spout.sendTexture();
 }
-
-// Modifier par Nico 20230502
+```
