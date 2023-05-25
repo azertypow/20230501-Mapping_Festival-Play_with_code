@@ -13,11 +13,11 @@ void draw1() {
   translate(width/2, height/2);
   scale(globalScale * s_3);
   fill(#D12323, opacity);
-  ellipse(0, 0, 1400, 1400);
+  ellipse(0, 0, 11387, 11387);
   fill(#762E2E, opacity);
-  ellipse(0, 0, 800, 800);
+  ellipse(0, 0, 6507, 6507);
   fill(0, opacity);
-  ellipse(0, 0, 50, 50);
+  ellipse(0, 0, 407, 407);
   popMatrix();
   
 }

@@ -23,7 +23,7 @@ void draw3() {
     pushMatrix();
     rotate(radians(a));
     strokeCap(CORNER);
-    strokeWeight(1);
+    strokeWeight(2);
     stroke(random(0),random(214),random(198),opacity);
     line(x, 0, xx, 0);
     popMatrix();
