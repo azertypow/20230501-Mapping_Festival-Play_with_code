@@ -172,6 +172,12 @@ void mousePressed() {
 
 
 void noteOn(Note note) {
+    println();
+  println("Controller Change:");
+  println("--------");
+  println("Channel:" + note.channel());
+  println("Value:" + note.pitch());
+
   if ( note.pitch() == 44 ) {
     println("44");
 
@@ -191,6 +197,13 @@ void noteOn(Note note) {
 }
 
 void controllerChange(ControlChange change) {
+   //Receive a controllerChange
+  println();
+  println("Controller Change:");
+  println("--------");
+  println("Channel:" + change.channel());
+  println("Number:" + change.number());
+  println("Value:" + change.value());
 
   if ( change.number() == 1 ) {
     background = change.value();
