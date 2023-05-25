@@ -1,8 +1,8 @@
-class Star {  // Modifier par Nico 20230502
+class Etoile{
   PVector pos;
   PImage ima;
   
-  Star(PVector pos,PImage ima){ // Modifier par Nico 20230502
+  Etoile(PVector pos,PImage ima){
     this.pos=pos;
     this.ima=ima;
   }
@@ -11,7 +11,7 @@ class Star {  // Modifier par Nico 20230502
     pushMatrix();
     translate(pos.x,pos.y,pos.z);
     tint(255, 255,255, random(255));
-    drawParticle(15,ima);
+    drawParticle(10,ima);
     noTint();
     popMatrix();
   }
