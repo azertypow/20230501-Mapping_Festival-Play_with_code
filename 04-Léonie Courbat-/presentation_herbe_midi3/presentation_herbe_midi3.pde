@@ -26,8 +26,25 @@ float taillecontrolforHerbe = 5;
 
 void setup() {
   //fullScreen(P3D, SPAN);
-  size(1500, 200, P3D);
-  //size(15000, 2000, P3D);
+  //size(1500, 200, P3D);
+  //size(15000, 2000, P3D);  // Modifier par Nico 20230502
+
+  // PROJECTION SIZE
+  size (7000, 1200, P3D);
+
+  // WINDOW POSITION
+  surface.setResizable(true);
+  surface.setLocation(0, 0);
+
+  // CREATE A NEW SPOUT OBJECT
+  spout = new Spout(this);
+
+  // GIVE THE SENDER A NAME
+  // A sender can be given any name.
+  // Otherwise the sketch folder name is used
+  // the first time "sendTexture" is called.
+  spout.setSenderName("MappingFestival");
+
   pg = createGraphics (width, height, P2D);
   blur = loadShader("blur.glsl");
   s1 = new Analysor(this, "halp.mp3", 60);
@@ -145,6 +162,11 @@ void draw() {
   frameCount==9600 || frameCount==9800 || frameCount==10000) {
     thread("devague");
   }*/
+
+    // Send the texture of the drawing sufrface
+    spout.sendTexture();
+
+    //println(frameRate);
 
 }
 
