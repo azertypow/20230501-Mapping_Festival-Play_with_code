@@ -68,7 +68,7 @@ Flock flock;
 void setup() {
   //size (900, 900, P2D);
   //fullScreen(P2D, SPAN);
-  
+
   // PROJECTION SIZE
   size (7000, 1200, P2D);
 
@@ -82,7 +82,7 @@ void setup() {
   // GIVE THE SENDER A NAME
   // A sender can be given any name.
   // Otherwise the sketch folder name is used
-  // the first time "sendTexture" is called.  
+  // the first time "sendTexture" is called.
   spout.setSenderName("MappingFestival");
 
   minim = new Minim(this);
@@ -95,7 +95,7 @@ void setup() {
   vent = minim.loadFile("wind.mp3");
   pouic = minim.loadFile("pouet.mp3");
   everywhere = minim.loadFile("everywhere.mp3");
-  
+
   /*  lpf = new LowPassFS(100, output.sampleRate());
    nazz.patch( lpf ).patch( output );
    nazz.loop();*/
@@ -137,9 +137,9 @@ void setup() {
   layer = createGraphics (width, height);
 
   construcSource();
-  
+
   MidiBus.list();
-  myBus = new MidiBus(this, 1, 0);
+  myBus = new MidiBus(this, 3, 0);
 }
 
 void construcSource() {
@@ -157,11 +157,11 @@ void construcSource() {
 
 
 void draw () {
-  
+
   flock.run();
   time+=millis()-lastMillis;
   everywhere.play();
-  
+
 
 
   // int index=int(random(soles.length));
@@ -196,7 +196,7 @@ void draw () {
   } else {
     moon = false;
   }
-  
+
   camera(eyeX, eyeY, eyeZ, // eyeX, eyeY, eyeZ
          centerX, centerY, centerZ, // centerX, centerY, centerZ
          upX, upY, upZ);
@@ -205,15 +205,15 @@ void draw () {
    birds = true;
    if (birds == true) {
    oiseau();
-   
+
    }
    }*/
-   
+
     // Send the texture of the drawing sufrface
     spout.sendTexture();
-   
+
    println(frameRate);
-   
+
 }
 void lune() {
   pushMatrix();
@@ -227,7 +227,7 @@ void lune() {
 }
 
 /*void oiseau() {
- 
+
  flock.addBoid(new Boid(width/1.3, height/4));
  }*/
 
@@ -326,7 +326,7 @@ void noteOn(Note note) {
   println("Channel:"+note.channel());
   println("Pitch:"+note.pitch());
   println("Velocity:"+note.velocity());
-  
+
 // CONTROL CIELS
   if(note.pitch() == 9 ){
     for (int i=0; i<sources.size(); i++) {
@@ -336,7 +336,7 @@ void noteOn(Note note) {
     vent.play();
     vent.rewind();
     }
-    
+
    if(note.pitch() == 10 ){
        for (int i=0; i<sources.size(); i++) {
       sources.get(i).textures = suns;

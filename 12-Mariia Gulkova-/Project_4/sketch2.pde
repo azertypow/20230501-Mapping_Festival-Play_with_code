@@ -33,7 +33,7 @@ void draw2() {
     //fill(255, 0, 0);
     scale(0.98);
     rotate(radians(angle));
-    rect(0, 0, 6000, 6000);
+    rect(0, 0, 1000, 1000);
   }
   popMatrix();
 
