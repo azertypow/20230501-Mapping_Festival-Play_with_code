@@ -7,8 +7,7 @@ import spout.*;
 // DECLARE A SPOUT OBJECT
 Spout spout;
 
-boolean performanceRunning = false;
-
+boolean performanceRunning = true;
 
 //Jellyfish [] tabJelly = new Jellyfish[15];
 int jellyNbr = 1;
@@ -31,14 +30,13 @@ float period = 300;
 float soundAvg = 0;
 int background = 120;
 boolean pressing = false;
-int transparency = 255;
-
+int transparency = 1;
 
 void setup() {
   // size(1000, 600, P2D); // Modifier par Nico 20230502
   //size(1920, 1080);
   // fullScreen(P2D,SPAN); // Modifier par Nico 20230502
-  
+
   // PROJECTION SIZE
   size (7000, 1200, P2D);
 
@@ -52,12 +50,12 @@ void setup() {
   // GIVE THE SENDER A NAME
   // A sender can be given any name.
   // Otherwise the sketch folder name is used
-  // the first time "sendTexture" is called.    
+  // the first time "sendTexture" is called.
   spout.setSenderName("MappingFestival");
 
-  
-  
-  
+
+
+
   s1 = new Analysor(this, "wondrous-waters-119518.mp3", 60);
 
   for (int i=0; i<1; i++) {
@@ -138,22 +136,30 @@ void draw() {
     tabJelly.get(i).touch(tabJelly);
   }
 
-
+  //if (!performanceRunning) {
+  //  // reduce opacity of jellyfish and fish
+  //  for (Jellyfish jelly : tabJelly) {
+  //    jelly.reduceOpacity();
+  //  }
+  //  for (Boid boid : flock.boids) {
+  //    boid.reduceOpacity();
+  //  }
+  //}
 
 
   index++;
   if (index>=36)index=7;
-  
+
   if(!performanceRunning){
-     fill(0, 0, 0, transparency);
-     rect(0, 0, 0, width, height);
-     transparency++;
+  fill(0, 0, 0, transparency);  // adjust the last value to get the desired opacity
+  rect(0, 0, width*2, height*2);
+  transparency+=1;
   }
-  
-  
+
+
   // Send the texture of the drawing sufrface
   spout.sendTexture();
-  
+
   //println(frameRate);
 }
 
@@ -166,22 +172,15 @@ void mousePressed() {
 
 
 void noteOn(Note note) {
-    println();
-  println("Controller Change:");
-  println("--------");
-  println("Channel:" + note.channel());
-  println("Value:" + note.pitch());
-  
-  
-  if ( note.pitch() == 40 ) {
+  if ( note.pitch() == 44 ) {
     println("44");
 
     jellyNbr++;
     tabJelly.add(new Jellyfish(0, 0, s1));
   }
-  if ( note.pitch() == 41 ) {
+  if ( note.pitch() == 45 ) {
+    println("45");
     performanceRunning = false;
-    println("end");
   }
 
   //if ( note.pitch() == 45 ) {
@@ -192,13 +191,6 @@ void noteOn(Note note) {
 }
 
 void controllerChange(ControlChange change) {
-   //Receive a controllerChange
-  println();
-  println("Controller Change:");
-  println("--------");
-  println("Channel:" + change.channel());
-  println("Number:" + change.number());
-  println("Value:" + change.value());
 
   if ( change.number() == 1 ) {
     background = change.value();
@@ -211,21 +203,20 @@ void controllerChange(ControlChange change) {
       swArray[i].r.set(swArray[i].r.size(), 50);
     }
   }
-  
+
   if ( change.number() == 3 ) {
     println("in 3");
     for (int i = 0; i < flock.boids.size(); i++) {
         flock.boids.get(i).maxforce = map(change.value(), 0, 127, 0.005, 0.05);
     }
   }
-  
+
   if ( change.number() == 4 ) {
     println("in 4");
     for (int i = 0; i < flock.boids.size(); i++) {
         flock.boids.get(i).maxspeed = map(change.value(), 0, 127, 1, 5);
     }
   }
-
 
 
 
@@ -244,7 +235,6 @@ void controllerChange(ControlChange change) {
   //    pressing = false;
   //  }
   //}
-
 
 
   //if ( change.number() == 105 ) {
