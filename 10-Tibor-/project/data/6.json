@@ -48,7 +48,7 @@
   "/off2": {
     "min": 0,
     "max": 1,
-    "value": 0.0598631426692009
+    "value": 0.059863150119781494
   },
   "/offMultY": {
     "min": 0,
@@ -88,7 +88,7 @@
   "/dotSizePct": {
     "min": 0,
     "max": 0.03999999910593033,
-    "value": 5.017094663344324E-4
+    "value": 5.017095245420933E-4
   },
   "/cols": {
     "min": 1,
@@ -111,7 +111,7 @@
     "value": 0.5
   },
   "/label": {
-    "stringValue": "55.69FPS",
+    "stringValue": "54.34FPS",
     "value": 0
   },
   "/ani1Dur": {
