@@ -422,6 +422,13 @@ void draw() {
   periodicMsg.add(periodicFuncScale);
   chuckOSC.send(periodicMsg, chuckRemote);
   
+  OscMessage myMsg = new OscMessage("/my");
+  myMsg.add(my);
+  chuckOSC.send(myMsg, chuckRemote);
+  
+  OscMessage mxMsg = new OscMessage("/mx");
+  mxMsg.add(my);
+  chuckOSC.send(mxMsg, chuckRemote);
   
   OscMessage radMsg = new OscMessage("/rad");
   radMsg.add(rad);
@@ -435,8 +442,13 @@ void draw() {
   fillMsg.add(aFillMix);
   chuckOSC.send(fillMsg, chuckRemote);
   
+  OscMessage offMultXMsg = new OscMessage("/offMultX");
+  offMultXMsg.add(offMultX);
+  chuckOSC.send(offMultXMsg, chuckRemote);
   
-  
+  OscMessage offMultYMsg = new OscMessage("/offMultY");
+  offMultXMsg.add(offMultY);
+  chuckOSC.send(offMultYMsg, chuckRemote);
   
   drawDots();
   image(b, 0, 0, width, height);

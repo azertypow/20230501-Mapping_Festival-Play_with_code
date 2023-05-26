@@ -13,7 +13,7 @@
   "/rows": {
     "min": 1,
     "max": 50,
-    "value": 26.196020126342773
+    "value": 26
   },
   "/periodicFuncScale": {
     "min": 0.009999999776482582,
@@ -83,7 +83,7 @@
   "/bgFill": {
     "min": 0,
     "max": 255,
-    "value": 27.528406143188477
+    "value": 27.528411865234375
   },
   "/dotSizePct": {
     "min": 0,
@@ -111,7 +111,7 @@
     "value": 0.5
   },
   "/label": {
-    "stringValue": "17,51FPS",
+    "stringValue": "54.30FPS",
     "value": 0
   },
   "/ani1Dur": {
