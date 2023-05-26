@@ -10,11 +10,12 @@ void draw5() {
   //image(land,0,0);
 
 
-  for (int i=0; i<40; i++) {
+  for (int i=0; i<300; i++) {
   
-    int x = int(random(width));
-    int y = int(random(height));
+    int x = int(random(land.width));
+    int y = int(random(land.height));
     color col = land.get(x, y);
+    //color col = land.get(x - width/2+land.width/2, y);
 
     col = color(red(col), green(col)-0, blue(col));
 
@@ -25,6 +26,11 @@ void draw5() {
     noStroke();
     stroke(col, opacity);
     strokeWeight(random(1, 4));
+    
+    // offset point to center on the screen
+    x += width/2 - land.width/2;
+    y += height/2 - land.height/2;
+    
     line(x, y, x+random(-20, 20), y+random(-20, 20));
   }
   color col2 = land.get(mouseX, mouseY);

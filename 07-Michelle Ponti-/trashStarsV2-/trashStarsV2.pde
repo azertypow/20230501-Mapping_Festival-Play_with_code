@@ -5,15 +5,20 @@ import processing.opengl.PGraphics3D;
 import processing.opengl.PJOGL;
 
 
+
+/////MAPPING//////
 // IMPORT THE SPOUT LIBRARY
 import spout.*;
 // DECLARE A SPOUT OBJECT
 Spout spout;
 
+///////////////////
 
 
 Analysor s1;
 
+
+/// how many viewports --> 1 for mapping!!
 final int NX = 1;
 final int NY = 1;
 PeasyCam[] cameras = new PeasyCam[NX * NY];
@@ -25,6 +30,9 @@ PShape sphere;
 PImage part;
 
 float ry;
+
+// view de base sur la terre
+int ID=2;
 
 PlanetData[] planets= {   //nom, taille, position base
   new PlanetData("mercury", 15, 15),
@@ -42,20 +50,23 @@ Planet [] tabPlan = new Planet[planets.length];
 
 Asteroid [] tabAst = new Asteroid [5];
 
-Star[] etoiles = new Star[2500];  // Modifier par Nico 20230502
+Etoile [] etoiles = new Etoile[2500];
 
+float [] posLook;
 
 public void settings() {
 
+  /////MAPPING//////
   //scene
   //fullScreen(P3D);  // Modifier par Nico 20230502
-  
-  
+
 
   // PROJECTION SIZE
   size (7000, 1200, P3D);
-  
-  
+
+
+  /////////////////////
+
   //SOUND
   s1 = new Analysor (this, "1.mp3", 60);
 }
@@ -63,10 +74,9 @@ public void settings() {
 ///////////////////////////////////////////SETUP///////////////////////////////////////////
 
 public void setup() {
-  
-  
 
-  // WINDOW POSITION
+  /////MAPPING//////
+    // WINDOW POSITION
   surface.setResizable(true);
   surface.setLocation(0, 0);
 
@@ -76,8 +86,14 @@ public void setup() {
   // GIVE THE SENDER A NAME
   // A sender can be given any name.
   // Otherwise the sketch folder name is used
-  // the first time "sendTexture" is called.  
+  // the first time "sendTexture" is called.
   spout.setSenderName("MappingFestival");
+
+
+  ///////////////////
+
+
+
 
   int gap = 0;
 
@@ -99,7 +115,7 @@ public void setup() {
   //STARS
   part = loadImage("particules.png");
   for (int i=0; i<etoiles.length; i++) {
-    etoiles[i] = new Star(new PVector(random(-3000, 3000), random(-3000, 3000), random(-3000, 3000)), part); // Modifier par Nico 20230502
+    etoiles[i] = new Etoile(new PVector(random(-3000, 3000), random(-3000, 3000), random(-3000, 3000)), part);
   }
 
 
@@ -125,12 +141,16 @@ public void setup() {
       cameras[id].setViewport(cx, cy, cw, ch);
     }
   }
-  
+
+  posLook = tabPlan[ID].actualPosition();
+
 }
 
 ///////////////////////////////////////////DRAW///////////////////////////////////////////
 
 public void draw() {
+
+  println(posLook[0], posLook[1], posLook[2], tabPlan[ID].actualPosition()[0], tabPlan[ID].actualPosition()[1], tabPlan[ID].actualPosition()[2]);
 
   //sound
   s1.runAnalyse();
@@ -144,18 +164,50 @@ public void draw() {
   for (int i = 0; i < cameras.length; i++) {
     pushStyle();
     pushMatrix();
-    displayScene(cameras[i], i);
+    displayScene(cameras[i]);
     popMatrix();
     popStyle();
   }
-  
-  
+
+  //////////////////////// KEYBOARDS
+
+
+  if (keyPressed) {
+    if (key == '0') {
+      ID=0;
+    } else if (key == '1') {
+      ID=1;
+    } else if (key == '2') {
+      ID=2;
+    } else if (key == '3') {
+      ID=3;
+    } else if (key == '4') {
+      ID=4;
+    } else if (key == '5') {
+      ID=5;
+    } else if (key == '6') {
+      ID=6;
+    } else if (key == '7') {
+      ID=7;
+    } else if (key == '8') {
+      ID=8;
+    //} else if (key == '9') {
+    //  ID=9;
+    }
+
+    if (key == 'a') {
+      println(ID);
+    }
+  }
+
     // Send the texture of the drawing sufrface
     spout.sendTexture();
-    
-    
+
+
   println(frameRate);
 }
+
+///////////////////////// END
 
 // some OpenGL instructions to set our custom viewport
 //   https://www.khronos.org/registry/OpenGL-Refpages/gl4/html/glViewport.xhtml
@@ -168,11 +220,10 @@ void setGLGraphicsViewport(int x, int y, int w, int h) {
   pgl.enable(PGL.SCISSOR_TEST);
   pgl.scissor (x, y, w, h);
   pgl.viewport(x, y, w, h);
-  
 }
 
 
-public void displayScene(PeasyCam cam, int ID) {
+public void displayScene(PeasyCam cam) {
 
   int[] viewport = cam.getViewport();
   int w = viewport[2];
@@ -190,20 +241,22 @@ public void displayScene(PeasyCam cam, int ID) {
   // projection - using camera viewport
   perspective(60 * PI/180, w/(float)h, 1, 5000);
 
-  if (ID==0) {
-    float [] pos= tabPlan[2].actualPosition();
-    cam.lookAt(pos[0], pos[1]-10, pos[2], 200, 0); //x,y,z,distance,delay
+
+
+
+  /////////// CAMERAS
+
+
+  // Move lookAt position (posLook) towards target planet
+  for (int i=0; i < 3; i++) {
+    posLook[i] += (tabPlan[ID].actualPosition()[i] - posLook[i]) * 0.02; //facteur a modifier pour la vitesse du deplacement
   }
 
-  if (ID==1) {
-    float [] pos= tabPlan[2].actualPosition();
-    cam.lookAt(pos[0], pos[1]-10, pos[2], 100, 0); //x,y,z,distance,delay
-  }
+  cam.lookAt(posLook[0], posLook[1], posLook[2], 400, 0); //x,y,z,distance,delay
+
 
   // clear background (scissors makes sure we only clear the region we own)
   background(0);
-
-
 
 
   //////////////OBJECTS DRAW

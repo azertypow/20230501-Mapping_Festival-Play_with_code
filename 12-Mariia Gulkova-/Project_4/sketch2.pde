@@ -23,7 +23,7 @@ void draw2() {
   strokeWeight(1);
 
   pushMatrix();
-  a = a + 0.02;
+  a = a + 0.01;
   //s = cos(a)*2;
 
   translate(width/2, height/2);
@@ -33,7 +33,7 @@ void draw2() {
     //fill(255, 0, 0);
     scale(0.98);
     rotate(radians(angle));
-    rect(0, 0, 200, 200);
+    rect(0, 0, 1000, 1000);
   }
   popMatrix();
 

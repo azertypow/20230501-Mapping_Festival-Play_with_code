@@ -15,9 +15,9 @@ PImage land;
 Analysor sl;
 void setup() {
   //size(15000, 2000);
-  
+
   // fullScreen(P2D,SPAN); // Modifier par Nico 20230502
-  
+
 
   // PROJECTION SIZE
   size (7000, 1200, P2D);
@@ -32,18 +32,20 @@ void setup() {
   // GIVE THE SENDER A NAME
   // A sender can be given any name.
   // Otherwise the sketch folder name is used
-  // the first time "sendTexture" is called.    
+  // the first time "sendTexture" is called.
   spout.setSenderName("MappingFestival");
-  
-  
-  
-  sl = new Analysor(this, "4.mp3", 60); 
-  
+
+
+
+  sl = new Analysor(this, "4.mp3", 60);
+
   //background(0);
-  land = loadImage("Madonna.png");
-   land.resize(1449, 805);
+  land = loadImage("BigMadonna.png");
+   //land.resize(700, 400);
+   //land.resize(1449, 805);
+   land.resize(0, height);
    imageMode(CENTER);
- 
+
  MidiBus.list(); // List all available Midi devices
 
   //                      select input here
@@ -52,15 +54,15 @@ void setup() {
 
   //frameRate(1000);
   setup4();
-  
+
 
 }
 
 void draw() {
-  
-  if (millis()<600) {
+
+  if (millis()<6000) {
     mode=1;
-  } else if (millis()<30000 ) {
+  } else if (millis()<30000) {
     mode=2;
   } else if (millis()<35000) {
     mode=4;
@@ -84,14 +86,14 @@ void draw() {
     mode=9;
   } else if (millis()<165000) {
     mode=4;
-  } else if (millis()<169955 ) {  
+  } else if (millis()<169955 ) {
     background(0, 15, 30);
     mode=-1;
   } else if (millis()<180000 ) {
     //background(0, 15, 30);
     mode=5;
   }
-
+//mode=5;
   if (mode==1) {
     draw1();
   }
@@ -116,10 +118,10 @@ void draw() {
 
 
   //println(millis()+"  "+"mode : "+mode);
-  
+
   // Send the texture of the drawing sufrface
   spout.sendTexture();
-  
+
   //println(frameRate);
 }
 

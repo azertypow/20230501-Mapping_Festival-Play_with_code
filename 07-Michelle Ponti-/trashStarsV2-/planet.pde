@@ -99,8 +99,8 @@ class Planet {
       translate(0, 0);
       rotateZ(PI/1.5);
       scale(3.5);
-    //  this.sphereRing.setTexture(this.textureRing);
-      fill(128, 128, 128);
+   // this.sphereRing.setTexture(this.textureRing);
+      fill(80, 80, 80);
       noStroke();
       shape(this.sphereRing);
       popMatrix();

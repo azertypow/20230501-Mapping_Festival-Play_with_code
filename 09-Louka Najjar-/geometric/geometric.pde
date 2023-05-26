@@ -120,7 +120,7 @@ void draw() {
     pushMatrix();
     translate(0, 0, minZ);
     fill(0, backgroundOpacity);
-    rect(0, 0, width * 50, height * 50);
+    rect(0, 0, width * 200, height * 200);
     popMatrix();
 
     pushMatrix();
